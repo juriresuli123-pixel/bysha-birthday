@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>I love you — Bysha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #0f172a; /* deep navy */
+      --bg2: #2b0b0b; /* dark wine */
+      --accent: #ff3b5c; /* vivid red */
+      --glass: rgba(255,255,255,0.06);
+      --text: #fff;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Poppins,system-ui,Arial;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--text);}
+
+    /* layout */
+    .stage{min-height:100vh;display:grid;place-items:center;padding:4vmin;position:relative;overflow:hidden}
+
+    /* subtle star-like overlay */
+    .stage::before{
+      content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);background-size:60px 60px;opacity:0.6;mix-blend-mode:overlay;pointer-events:none;
+    }
+
+    .card{
+      width:min(1200px,96vw);height:min(820px,86vh);border-radius:24px;padding:4vmin;backdrop-filter:blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));box-shadow:0 10px 40px rgba(2,6,23,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.04);
+    }
+
+    /* repeated big declarations */
+    .big-words{
+      display:flex;flex-wrap:wrap;gap:2vmin;justify-content:center;align-items:center;width:100%;max-width:1100px;opacity:0.98;transform:translateZ(0);
+    }
+
+    .big-words h1{
+      margin:0;font-weight:900;letter-spacing:0.02em;line-height:0.9;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.55));
+      font-size:clamp(28px, 8vw, 120px);color:transparent;background:linear-gradient(90deg,#fff 0%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.6) 100%);-webkit-background-clip:text;background-clip:text;opacity:0.95;transform-origin:center;animation:float 8s ease-in-out infinite;
+    }
+
+    /* staggering via nth-child */
+    .big-words h1:nth-child(odd){animation-duration:7s}
+    .big-words h1:nth-child(3n){animation-duration:9s}
+    .big-words h1:nth-child(4n){animation-duration:6.5s}
+
+    @keyframes float{
+      0%{transform:translateY(0) scale(1)}
+      50%{transform:translateY(-8px) scale(1.02)}
+      100%{transform:translateY(0) scale(1)}
+    }
+
+    /* heart center */
+    .heart-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:1vmin}
+    .heart{width:18vmin;max-width:220px;aspect-ratio:1;display:inline-block;animation:beat 1s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(255,59,92,0.12));}
+
+    @keyframes beat{
+      0%,100%{transform:scale(1)}
+      40%{transform:scale(1.12)}
+      60%{transform:scale(1.06)}
+    }
+
+    /* subtext around heart */
+    .heart-sub{font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.18em;font-size:0.85rem}
+
+    /* final signature */
+    .signature{position:absolute;left:50%;bottom:3.5vmin;transform:translateX(-50%);z-index:6;padding:12px 20px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.04);font-family:'Great Vibes',cursive;font-size:clamp(20px,3.6vw,46px);color:var(--accent);box-shadow:0 8px 30px rgba(11,5,8,0.45);}
+
+    /* small footer */
+    .tiny{position:absolute;right:12px;bottom:10px;font-size:12px;color:rgba(255,255,255,0.35)}
+
+    /* responsive tweaks */
+    @media (max-width:640px){
+      .card{padding:3vmin;border-radius:18px}
+      .heart{width:24vmin}
+      .big-words h1{font-size:clamp(22px,7.4vw,72px)}
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="card" aria-label="I love you card">
+
+      <div class="big-words" aria-hidden="true">
+        <!-- repeated "I love you" lines: many repeats to fill the card -->
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+        <h1>I love you</h1><h1>I love you</h1><h1>I love you</h1><h1>I love you</h1>
+      </div>
+
+      <div class="heart-wrap" aria-hidden="true">
+        <!-- SVG heart -->
+        <svg class="heart" viewBox="0 0 32 29.6" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="heart">
+          <path fill="url(#g)" d="M23.6,0C20.4,0,18,1.9,16,4.4C14,1.9,11.6,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2S32,17.5,32,8.4C32,3.8,28.2,0,23.6,0z"/>
+          <defs>
+            <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#ff6b81" />
+              <stop offset="100%" stop-color="#ff224b" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="heart-sub">you are my world</div>
+      </div>
+
+      <div class="signature" aria-label="final message">i love you Byshaaaa</div>
+
+      <div class="tiny">Made with ❤️ — open in full screen for best effect</div>
+    </section>
+  </main>
+</body>
+</html>
